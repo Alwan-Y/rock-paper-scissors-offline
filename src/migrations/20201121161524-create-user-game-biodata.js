@@ -17,7 +17,8 @@ module.exports = {
       },
       gender: {
         type: Sequelize.ENUM,
-        values: ['m', 'f']
+        values: ['m', 'f'],
+        allowNull: true
       },
       age: {
         type: Sequelize.STRING,

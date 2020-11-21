@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       const { UserGame } = models
 
-      UserGameHistory.belongsToMany(UserGame, {foreignKey: 'id'} )
+      UserGameHistory.belongsTo(UserGame, {foreignKey: 'id'} )
     }
   };
   UserGameHistory.init({

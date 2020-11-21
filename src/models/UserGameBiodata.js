@@ -20,7 +20,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.ENUM,
       values: ['m', 'f']
     },
-    Age: DataTypes.INTEGER
+    age: DataTypes.INTEGER,
+    userGameId: DataTypes.UUID
   }, {
     sequelize,
     modelName: 'UserGameBiodata',
