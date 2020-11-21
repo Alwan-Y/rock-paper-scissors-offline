@@ -15,12 +15,6 @@ class UserGameBiodataController {
         try {
             const { fullname, addres, gender, age, userGameId } = req.body
 
-            console.log(fullname)
-            console.log(addres)
-            console.log(gender)
-            console.log(age)
-            console.log(userGameId)
-
             const createUser = await UserGameBiodata.create({
                 fullname,
                 addres,
@@ -67,7 +61,7 @@ class UserGameBiodataController {
 
             const deleted = await UserGameBiodata.destroy({where: { id }})
 
-            res.status(200).json({message: 'Deleted UserGame'})
+            res.status(200).json({message: 'Deleted Biodata'})
         } catch(error) {
             res.status(500).json({message: 'Internal Server Error'})
         }

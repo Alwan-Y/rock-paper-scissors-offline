@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
     username: DataTypes.STRING,
     playerChoice: DataTypes.STRING,
     computerChoice: DataTypes.STRING,
-    result: DataTypes.STRING
+    result: DataTypes.STRING,
+    userGameId: DataTypes.UUID
   }, {
     sequelize,
     modelName: 'UserGameHistory',
