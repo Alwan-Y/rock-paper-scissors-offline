@@ -7,7 +7,11 @@
     "start": "nodemon src --exec babel-node",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sequelize": "sequelize",
+    "db:migrate": "sequelize db:migrate",
+    "db:seed:all": "sequelize db:seed:all",
+    "db:migrate:refresh": "sequelize db:migrate:undo:all && yarn db:migrate"
   },
   "author": "Alwan Yusuf",
   "license": "ISC",
@@ -15,6 +19,9 @@
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "pg": "^8.5.1",
+    "sequelize": "^6.3.5",
     "uniqid": "^5.2.0"
   },
   "devDependencies": {
@@ -32,6 +39,7 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.4",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "sequelize-cli": "^6.2.0"
   }
 }
