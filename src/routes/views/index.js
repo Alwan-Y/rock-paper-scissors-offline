@@ -1,9 +1,15 @@
 import express from 'express'
-import PostController from '../../controllers/PostController'
+import PageController from '../../controllers/pageController'
 
 const router = express.Router()
 
-router.get('/', PostController.getHomePageView)
-router.get('/game', PostController.getGameView)
+router.get('/', PageController.getHomePageView)
+router.get('/game', PageController.getGameView)
+router.get('/choiceLogin', PageController.getChoiceLoginPage)
+router.get('/loginUser', PageController.getLoginUser)
+router.get('/dashboard', PageController.getDashboard)
+router.get('/createUser', PageController.getCreateUser)
+router.get('/loginAdmin', PageController.getLoginAdmin)
+router.get('/createUserBiodata', PageController.getCreateUserBiodata)
 
 export default router

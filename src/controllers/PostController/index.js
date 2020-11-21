@@ -5,15 +5,7 @@ import uniqid from 'uniqid'
 
 const filePath = path.resolve(__dirname, '../../data/data.json')
 
-class PostController {
-  static getGameView = (req, res) => {
-    res.render('posts/game')
-  }
-
-  static getHomePageView  = (req, res) => {
-    res.render('posts/homePage')
-  }
-
+class PostController { 
   static getCompChoice = (req, res) => {
     let compChoice = ''
     const choice = Math.random();
