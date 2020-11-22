@@ -27,3 +27,12 @@ body {
 .margin-custom {
     margin-top: 300px;
 }
+
+.font-cus-1 {
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+.mar-cus {
+    margin-right: -15px;
+}
