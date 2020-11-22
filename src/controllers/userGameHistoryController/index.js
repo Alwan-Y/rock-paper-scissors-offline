@@ -1,69 +1,73 @@
-import { UserGameHistory } from '../../models/'
+import { UserGameHistory } from '../../models'
 
 class UserGameHistoryController {
     static get = async (req, res) => {
-        try {
-            const findAllHistory = await UserGameHistory.findAll()
-            res.status(200).json(findAllHistory)
-        } catch(error) {
-            res.status(404).json({message: 'data not found'})
-        }
+      try {
+        const findAllHistory = await UserGameHistory.findAll()
+        res.status(200).json(findAllHistory)
+      } catch (error) {
+        res.status(404).json({ message: 'data not found' })
+      }
     }
 
     static create = async (req, res) => {
-        try {
-            const { username, playerChoice, computerChoice, result, userGameId } = req.body
+      try {
+        const {
+          username, playerChoice, computerChoice, result, userGameId,
+        } = req.body
 
-            const createHistory = await UserGameHistory.create({
-                username,
-                playerChoice,
-                computerChoice,
-                result,
-                userGameId
-            })
+        const createHistory = await UserGameHistory.create({
+          username,
+          playerChoice,
+          computerChoice,
+          result,
+          userGameId,
+        })
 
-            res.status(200).send({ message: 'succes add user data'})
-        } catch(error) {
-            res.status(500).send(error)
-        }
+        res.status(200).send({ message: 'succes add user data' })
+      } catch (error) {
+        res.status(500).send(error)
+      }
     }
 
     static update = async (req, res) => {
-        const { id } = req.params
-        const { username, playerChoice, computerChoice, result } = req.body
+      const { id } = req.params
+      const {
+        username, playerChoice, computerChoice, result,
+      } = req.body
 
-        const findHistory = await UserGameHistory.findOne({where: {id} })
+      const findHistory = await UserGameHistory.findOne({ where: { id } })
 
-        if (!findHistory) {
-            res.status(404).json({message: 'History not found'})
-        }
+      if (!findHistory) {
+        res.status(404).json({ message: 'History not found' })
+      }
 
-        const updateBiodata = await UserGameHistory.update({
-            username,
-            playerChoice,
-            computerChoice,
-            result
-        }, {where: {id} })
+      const updateBiodata = await UserGameHistory.update({
+        username,
+        playerChoice,
+        computerChoice,
+        result,
+      }, { where: { id } })
 
-        res.status(200).json({message: 'updating user history'})
+      res.status(200).json({ message: 'updating user history' })
     }
 
     static delete = async (req, res) => {
-        try {
-            const { id } = req.params
-        
-            const findHistory = await UserGameHistory.findOne({ where: {id}})
+      try {
+        const { id } = req.params
 
-            if (!findHistory) {
-                return res.status(404).json({message: 'History not found'})
-            }
+        const findHistory = await UserGameHistory.findOne({ where: { id } })
 
-            const deleted = await UserGameHistory.destroy({where: { id }})
-
-            res.status(200).json({message: 'Deleted History'})
-        } catch(error) {
-            res.status(500).json({message: 'Internal Server Error'})
+        if (!findHistory) {
+          return res.status(404).json({ message: 'History not found' })
         }
+
+        const deleted = await UserGameHistory.destroy({ where: { id } })
+
+        res.status(200).json({ message: 'Deleted History' })
+      } catch (error) {
+        res.status(500).json({ message: 'Internal Server Error' })
+      }
     }
 }
 

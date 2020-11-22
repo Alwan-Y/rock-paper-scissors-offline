@@ -1,6 +1,6 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('UserGame', {
+    await queryInterface.createTable('AdminGame', {
       id: {
         type: Sequelize.UUID,
         primaryKey: true,
@@ -15,10 +15,10 @@ module.exports = {
       password: {
         type: Sequelize.STRING,
         allowNull: false,
-      },
+      }
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('UserGame');
-  },
+    await queryInterface.dropTable('AdminGame');
+  }
 };

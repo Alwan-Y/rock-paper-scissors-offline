@@ -1,7 +1,7 @@
 import express from 'express'
 import PostController from '../../controllers/PostController'
 import UserGameController from '../../controllers/userGameController'
-import UserGameBiodataController from '../../controllers/userBiodataController/'
+import UserGameBiodataController from '../../controllers/userBiodataController'
 import UserGameHistoryController from '../../controllers/userGameHistoryController'
 
 const router = express.Router()
@@ -25,6 +25,5 @@ router.get('/userGameHistory', UserGameHistoryController.get)
 router.post('/userGameHistory', UserGameHistoryController.create)
 router.patch('/userGameHistory/:id', UserGameHistoryController.update)
 router.delete('/userGameHistory/:id', UserGameHistoryController.delete)
-
 
 export default router

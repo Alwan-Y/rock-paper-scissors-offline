@@ -5,7 +5,7 @@ module.exports = {
         type: Sequelize.UUID,
         primaryKey: true,
         allowNull: false,
-        unique: true
+        unique: true,
       },
       fullname: {
         type: Sequelize.STRING,
@@ -13,16 +13,16 @@ module.exports = {
       },
       addres: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: true,
       },
       gender: {
         type: Sequelize.ENUM,
         values: ['m', 'f'],
-        allowNull: true
+        allowNull: true,
       },
       age: {
         type: Sequelize.STRING,
-        allowNull: true
+        allowNull: true,
       },
       userGameId: {
         type: Sequelize.UUID,
@@ -30,12 +30,12 @@ module.exports = {
         onDelete: 'cascade',
         references: {
           model: 'UserGame',
-          key: 'id'
-        }
-      }
+          key: 'id',
+        },
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('UserGameBiodata');
-  }
+  },
 };

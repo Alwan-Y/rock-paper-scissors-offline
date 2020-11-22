@@ -9,7 +9,7 @@ module.exports = {
       },
       username: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       playerChoice: {
         type: Sequelize.STRING,
@@ -21,7 +21,7 @@ module.exports = {
       },
       result: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       userGameId: {
         type: Sequelize.UUID,
@@ -29,12 +29,12 @@ module.exports = {
         onDelete: 'cascade',
         references: {
           model: 'UserGame',
-          key: 'id'
-        }
-      }
+          key: 'id',
+        },
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('UserGameHistory');
-  }
+  },
 };

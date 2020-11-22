@@ -1,11 +1,11 @@
 import fs from 'fs'
 import path from 'path'
-import data from '../../data/data.json'
 import uniqid from 'uniqid'
+import data from '../../data/data.json'
 
 const filePath = path.resolve(__dirname, '../../data/data.json')
 
-class PostController { 
+class PostController {
   static getCompChoice = (req, res) => {
     let compChoice = ''
     const choice = Math.random();
@@ -17,13 +17,13 @@ class PostController {
   }
 
   static get = (req, res) => {
-    let filteredData = data
+    const filteredData = data
 
     return res.status(200).json({ data: filteredData })
   }
 
   static create = (req, res) => {
-    if(req.body.playerChoice == null && req.body.compChoice == null && req.body.result == null) {
+    if (req.body.playerChoice == null && req.body.compChoice == null && req.body.result == null) {
       return res.status(401).send({ error: true, message: 'Field missing in request body.' })
     }
 
@@ -32,7 +32,7 @@ class PostController {
       id: uniqid(),
       playerChoice,
       computerChoice,
-      result
+      result,
     }
 
     data.push(historyData)

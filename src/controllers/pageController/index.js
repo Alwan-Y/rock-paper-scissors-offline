@@ -1,34 +1,34 @@
 class PageController {
     static getGameView = (req, res) => {
-        res.render('posts/game')
+      res.render('posts/game')
     }
-    
-    static getHomePageView  = (req, res) => {
-        res.render('posts/homePage')
+
+    static getHomePageView = (req, res) => {
+      res.render('posts/homePage')
     }
 
     static getChoiceLoginPage = (req, res) => {
-        res.render('posts/choiceLogin')
+      res.render('posts/choiceLogin')
     }
 
     static getCreateUser = (req, res) => {
-        res.render('posts/createUserDashboar')
+      res.render('posts/createUserDashboar')
     }
 
     static getCreateUserBiodata = (req, res) => {
-        res.render('posts/createUserBiodataDashboard')
+      res.render('posts/createUserBiodataDashboard')
     }
 
     static getDashboard = (req, res) => {
-        res.render('posts/dasboard')
+      res.render('posts/dasboard')
     }
 
     static getLoginAdmin = (req, res) => {
-        res.render('posts/loginAdmin')
+      res.render('posts/loginAdmin')
     }
 
     static getLoginUser = (req, res) => {
-        res.render('posts/loginUser')
+      res.render('posts/loginUser')
     }
 }
 

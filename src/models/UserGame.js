@@ -8,19 +8,19 @@ module.exports = (sequelize, DataTypes) => {
       UserGame.hasOne(UserGameBiodata, { foreignKey: 'id' })
       UserGame.hasMany(UserGameHistory, { foreignKey: 'id' })
     }
-  };
+  }
   UserGame.init({
     id: {
       primaryKey: true,
       type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4
+      defaultValue: DataTypes.UUIDV4,
     },
     username: DataTypes.STRING,
-    password: DataTypes.STRING
+    password: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'UserGame',
-    timestamps: false
+    timestamps: false,
   })
   return UserGame;
 };
