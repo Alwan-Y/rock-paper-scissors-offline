@@ -11,8 +11,6 @@ body {
     background-color: #724C21;
     width: 150px;
     height: 60px;
-    font-size: 12pt;
-    font-weight: bold;
 }
 
 .color-font {
@@ -28,6 +26,20 @@ body {
     margin-top: 300px;
 }
 
+.margin-custom-1 {
+    margin-top: -17px;
+}
+
 .custom-margin-2 {
     margin-left: 750px;
+}
+
+.font-cus-1 {
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+.font-cus-2 {
+    font-size: 14pt;
+    font-weight: bold;
 }

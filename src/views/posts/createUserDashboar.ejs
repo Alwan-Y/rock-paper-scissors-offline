@@ -15,19 +15,24 @@
         <div class="container">
             <form class="margin-custom">
                 <div class="form-group">
-                    <label for="exampleInputEmail1" class="color-font">Name</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="username" class="color-font">Username</label>
+                    <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1" class="color-font">Password</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1">
+                    <label for="password" class="color-font">Password</label>
+                    <input type="password" class="form-control" id="password">
                 </div>
-                <p class="text-right"><button type="submit" class="btn color-custom">Create</button></p>
+                <div class="text-right">
+                    <p>
+                        <h1 class="btn color-custom buton">Create</h1>
+                    </p>
+                </div>
             </form>
         </div>
     </div>
 
 
+    <script src="<%= `${process.env.APP_URL}/script/createUser/index.js` %>"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>

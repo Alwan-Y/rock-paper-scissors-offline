@@ -21,27 +21,10 @@
                     <th scope="col">Username</th>
                     <th scope="col">Password</th>
                     <th scope="col">Action</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>Update/Delete</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>Update/Delete</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
-                    <td>Update/Delete</td>
-                </tr>
+            <tbody id="listUserGame">
             </tbody>
         </table>
         <a href="http://localhost:3000/game"
@@ -58,33 +41,10 @@
                     <th scope="col">Gender</th>
                     <th scope="col">Age</th>
                     <th scope="col">Action</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Dimana mana</td>
-                    <td>m</td>
-                    <td>20</td>
-                    <td>Update/Delete</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Dimana mana</td>
-                    <td>m</td>
-                    <td>20</td>
-                    <td>Update/Delete</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry the Bird</td>
-                    <td>Dimana mana</td>
-                    <td>m</td>
-                    <td>20</td>
-                    <td>Update/Delete</td>
-                </tr>
+            <tbody id="listUserBiodata">
             </tbody>
         </table>
         <a href="http://localhost:3000/game"
@@ -101,38 +61,16 @@
                     <th scope="col">Computer Choice</th>
                     <th scope="col">Result</th>
                     <th scope="col">Action</th>
+                    <th scope="col">Action</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Rock</td>
-                    <td>Paper</td>
-                    <td>LOSSER</td>
-                    <td>Update/Delete</td>
-
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Rock</td>
-                    <td>Paper</td>
-                    <td>LOSSER</td>
-                    <td>Update/Delete</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry the Bird</td>
-                    <td>Rock</td>
-                    <td>Paper</td>
-                    <td>LOSSER</td>
-                    <td>Update/Delete</td>
-                </tr>
+            <tbody id="listUserHistory">
             </tbody>
         </table>
     </div>
 
+
+    <script src="<%= `${process.env.APP_URL}/script/dashBoard/index.js` %>"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>

@@ -15,31 +15,32 @@
         <div class="container">
             <form class="margin-custom">
                 <div class="form-group">
-                    <label for="Username" class="color-font">Username</label>
-                    <input type="text" class="form-control" id="Username" aria-describedby="emailHelp">
+                    <label for="fullname" class="color-font">Full Name</label>
+                    <input type="text" class="form-control" id="fullname">
                 </div>
                 <div class="form-group">
-                    <label for="FullName" class="color-font">Full Name</label>
-                    <input type="text" class="form-control" id="Full Name">
+                    <label for="addres" class="color-font">Addres</label>
+                    <input type="text" class="form-control" id="addres">
                 </div>
                 <div class="form-group">
-                    <label for="Addres" class="color-font">Addres</label>
-                    <input type="text" class="form-control" id="Addres">
+                    <label for="gender" class="color-font">Gender</label>
+                    <input type="text" class="form-control" id="gender">
                 </div>
                 <div class="form-group">
-                    <label for="Gender" class="color-font">Gender</label>
-                    <input type="text" class="form-control" id="Gender">
+                    <label for="age" class="color-font">Age</label>
+                    <input type="text" class="form-control" id="age">
                 </div>
-                <div class="form-group">
-                    <label for="Age" class="color-font">Age</label>
-                    <input type="text" class="form-control" id="Age">
+                <div class="text-right">
+                    <p>
+                        <h1 class="btn color-custom buton">Create</h1>
+                    </p>
                 </div>
-                <p class="text-right"><button type="submit" class="btn color-custom">Create</button></p>
             </form>
         </div>
     </div>
 
 
+    <script src="<%= `${process.env.APP_URL}/script/createUserBiodata/index.js` %>"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>

@@ -27,3 +27,10 @@ body {
 .margin-custom {
     margin-top: 150px;
 }
+
+.buton {
+    margin: auto;
+    width: 20%;
+    border: 3px solid #9b835f;
+    padding: 10px;
+}

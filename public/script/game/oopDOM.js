@@ -177,9 +177,9 @@ class Game {
     }
 
     sendHistory = () => {
-        const xhr = new XMLHttpRequest();
-        xhr.open("POST", "http://localhost:3000/apis/posts");
-        xhr.setRequestHeader("Content-Type", "application/json");
+        const xhr = new XMLHttpRequest()
+        xhr.open("POST", "http://localhost:3000/apis/posts")
+        xhr.setRequestHeader("Content-Type", "application/json")
         const result = {
             playerChoice: this.playerChoice,
             computerChoice: this.compChoice,
