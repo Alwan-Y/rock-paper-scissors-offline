@@ -1,4 +1,9 @@
 import { UserGame } from '../../models'
+import localStorage from '../../data/localStorage/data.json'
+import path from 'path'
+import fs from 'fs'
+
+const filePath = path.resolve(__dirname, '../../data/localStorage/data.json')
 
 class UserGameController {
     static get = async (req, res) => {
@@ -29,6 +34,51 @@ class UserGameController {
       } catch (error) {
         res.status(500).send(error)
       }
+    }
+
+    static loginCheck = async (req, res) => {
+      const { username, password } = req.body
+
+      if (!localStorage.length == 0) {
+        console.log('yak')
+        for (let i = 0; i < localStorage.length; i++) {
+          localStorage.pop()
+        }
+        fs.writeFile(
+          filePath,
+          JSON.stringify(localStorage),
+          'utf-8',
+          () => console.log('Succes Delete exists')
+        )
+      }
+
+      const findUser = await UserGame.findOne({ where: {username}})
+      
+      console.log(findUser.password)
+      console.log(password)
+
+      if (!findUser) {
+        return res.status(404).json({ message: 'Username not found' })
+      }
+
+      if (!findUser.password == password) {
+        res.status(403).json({ message: 'Password not valid'})
+      }
+      
+
+      const data = {
+        username,
+        password,
+      }
+
+      localStorage.push(data)
+
+      return fs.writeFile(
+        filePath,
+        JSON.stringify(localStorage),
+        'utf-8',
+        () => res.status(201).json({ message: `Successfully Login` }).redirect('/game'),
+      )
     }
 
     static update = async (req, res) => {

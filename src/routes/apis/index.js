@@ -14,6 +14,7 @@ router.delete('/posts/:id', PostController.delete)
 
 router.get('/userGame', UserGameController.get)
 router.post('/userGame', UserGameController.create)
+router.post('/userLoginCheck', UserGameController.loginCheck)
 router.patch('/userGame/:id', UserGameController.update)
 router.delete('/userGame/:id', UserGameController.delete)
 
@@ -26,6 +27,7 @@ router.delete('/userGameBiodata/:id', UserGameBiodataController.delete)
 
 router.get('/userGameHistory', UserGameHistoryController.get)
 router.post('/userGameHistory', UserGameHistoryController.create)
+router.get('/userGameHistory/:username', UserGameHistoryController.getByUsername)
 router.patch('/userGameHistory/:id', UserGameHistoryController.update)
 router.delete('/userGameHistory/:id', UserGameHistoryController.delete)
 

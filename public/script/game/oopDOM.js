@@ -1,3 +1,6 @@
+const username = 'alwan'
+const userGameId = '71b6e88f-3adb-433b-9566-ed5097438742'
+
 class Player {
     constructor(name) {
         this.name = name
@@ -178,12 +181,14 @@ class Game {
 
     sendHistory = () => {
         const xhr = new XMLHttpRequest()
-        xhr.open("POST", "http://localhost:3000/apis/posts")
+        xhr.open("POST", "http://localhost:3000/apis/userGameHistory")
         xhr.setRequestHeader("Content-Type", "application/json")
         const result = {
             playerChoice: this.playerChoice,
             computerChoice: this.compChoice,
-            result: this.startResult
+            result: this.startResult,
+            username: username,
+            userGameId: userGameId
         }
         xhr.send(JSON.stringify(result));
     }
@@ -219,15 +224,15 @@ class Game {
             if(responseJson.error) {
                 console.log(responseJson.message);
             } else {
-                game.renderAllHistory(responseJson.data)
+                game.renderAllHistory(responseJson)
             }
         }
         
         xhr.onerror = function() {
             alert('Internal server error')
         }
-        
-        xhr.open("GET", "http://localhost:3000/apis/posts");
+
+        xhr.open("GET", `http://localhost:3000/apis/userGameHistory/${username}`);
         xhr.send();
     };
 
@@ -242,7 +247,7 @@ class Game {
             alert('Internal server error')
         }
         
-        xhr.open("DELETE", `http://localhost:3000/apis/posts/${historyId}`);
+        xhr.open("DELETE", `http://localhost:3000/apis/userGameHistory/${historyId}`);
         xhr.send();
     }
 

@@ -1,4 +1,4 @@
-import { UserGameHistory } from '../../models'
+import { UserGameHistory, UserGame } from '../../models'
 
 class UserGameHistoryController {
     static get = async (req, res) => {
@@ -8,6 +8,17 @@ class UserGameHistoryController {
       } catch (error) {
         res.status(404).json({ message: 'data not found' })
       }
+    }
+
+    static getByUsername = async (req, res) => {
+      const { username } = req.params 
+      const findUserHistory = await UserGameHistory.findAll({
+        // include: [{
+        //   model: UserGame
+        // }],
+        where: {username}
+      })
+      res.status(200).json(findUserHistory)
     }
 
     static create = async (req, res) => {
