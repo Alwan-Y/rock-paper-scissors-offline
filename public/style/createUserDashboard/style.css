@@ -11,7 +11,7 @@ body {
     background-color: #724C21;
     width: 150px;
     height: 60px;
-    font-size: 12pt;
+    font-size: 20pt;
     font-weight: bold;
 }
 
@@ -22,6 +22,7 @@ body {
 .color-custom:hover {
     color: #724C21;
     background-color: white;
+    font-weight: bold;
 }
 
 .margin-custom {

@@ -6,6 +6,7 @@ const button = document.querySelector('.buton')
 const redirect = () => {
     location.replace("http://localhost:3000/game")
 }
+
 const redirect2 = () => {
     location.replace("http://localhost:3000/loginUser")
 }

@@ -145,4 +145,22 @@ img {
     #listHistory {
         margin-top: 200px;
     }
+
+    .color-custom {
+        color: white;
+        background-color: #724C21;
+        width: 150px;
+        height: 60px;
+        font-size: 20pt;
+        font-weight: bold;
+    }
+
+    .color-custom-2 {
+        color: white;
+        background-color: #724C21;
+        width: 270px;
+        height: 60px;
+        font-size: 20pt;
+        font-weight: bold;
+    }
 }

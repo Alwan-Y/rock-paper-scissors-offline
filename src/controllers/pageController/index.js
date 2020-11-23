@@ -30,6 +30,14 @@ class PageController {
     static getLoginUser = (req, res) => {
       res.render('posts/loginUser')
     }
+
+    static getUpdatePassword = (req, res) => {
+      res.render('posts/updatePassword')
+    }
+
+    static getUpdateUserBiodata = (req, res) => {
+      res.render('posts/updateUserBiodata')
+    }
 }
 
 export default PageController

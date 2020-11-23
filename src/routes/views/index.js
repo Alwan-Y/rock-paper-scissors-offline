@@ -11,5 +11,7 @@ router.get('/dashboard', PageController.getDashboard)
 router.get('/createUser', PageController.getCreateUser)
 router.get('/loginAdmin', PageController.getLoginAdmin)
 router.get('/createUserBiodata', PageController.getCreateUserBiodata)
+router.get('/updatePassword', PageController.getUpdatePassword)
+router.get('/updateBiodata', PageController.getUpdateUserBiodata)
 
 export default router

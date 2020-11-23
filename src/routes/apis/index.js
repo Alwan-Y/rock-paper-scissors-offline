@@ -17,7 +17,7 @@ router.get('/userGame/:username', UserGameController.getUserByUsername)
 router.get('/userLogin', UserGameController.getUserLogin)
 router.post('/userGame', UserGameController.create)
 router.post('/userLoginCheck', UserGameController.loginCheck)
-router.patch('/userGame/:id', UserGameController.update)
+router.patch('/userGame/:username', UserGameController.update)
 router.delete('/userGame/:id', UserGameController.delete)
 
 router.get('/adminGame', AdminGameController.get)

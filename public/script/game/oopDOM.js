@@ -253,14 +253,15 @@ class Game {
 
     renderAllHistory = (history) => {
         const listHistoryElement = document.querySelector("#listHistory");
-        listHistoryElement.innerHTML = "";
+        listHistoryElement.innerHTML = ""
+        console.log(history)
     
         history.forEach(history => {
             listHistoryElement.innerHTML += `
             <div class="col-lg-4 col-md-6 col-sm-12" style="margin-top: 12px; ">
                 <div class="card" style="background-color:#724C21; border-radius: 20px; ">
                     <div class="card-body">
-                        <h5 class="text-center text-uppercase" style="color: #f9b23e;">player choice = ${history.playerChoice}</h5>
+                        <h5 class="text-center text-uppercase" style="color: #f9b23e;">${history.username} choice = ${history.playerChoice}</h5>
                         <h5 class="text-center text-uppercase" style="color: #f9b23e;"> computer choice = ${history.computerChoice}</h5>
                         <h4 class="text-center text-uppercase mt-5" style="color: #f9b23e;"> result = ${history.result}</h4>
                         <p class="text-center mt-3"><button id="${history.id}" type="button" class="btn btn-danger button-delete"
@@ -328,7 +329,6 @@ const getUserId = (test) => {
         if(responseJson.error) {
             console.log(responseJson.message);
         } else {
-            console.log(responseJson.id)
             userGameId = responseJson.id
 
         }
@@ -360,6 +360,19 @@ refresh.addEventListener('click', () => {
     game.getHistory()
 })
 
+const logout = document.querySelector('.logout')
+logout.addEventListener('click', () => {
+    username = ""
+    userGameId = ""
+    location.replace("http://localhost:3000")
+})
 
+const changePassword = document.querySelector('.change-password')
+changePassword.addEventListener('click', () => {
+    location.replace("http://localhost:3000/updatePassword")
+})
 
-
+const changeBiodata = document.querySelector('.change-biodata')
+changeBiodata.addEventListener('click', () => {
+    location.replace("http://localhost:3000/updateBiodata")
+})

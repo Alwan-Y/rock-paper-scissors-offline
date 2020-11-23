@@ -33,18 +33,40 @@ class UserGameController {
       try {
         const { username, password } = req.body
 
+        if (!localStorage.length == 0) {
+          console.log('yak')
+          for (let i = 0; i < localStorage.length; i++) {
+            localStorage.pop()
+          }
+          fs.writeFile(
+            filePath,
+            JSON.stringify(localStorage),
+            'utf-8',
+            () => console.log('Succes Delete exists')
+          )
+        }
+
         const findUser = await UserGame.findOne({ where: { username } })
 
         if (findUser) {
           return res.status(404).json({ message: 'Username already available' })
         }
 
-        const createUser = await UserGame.create({
+        const newUser = {
           username,
-          password,
-        })
+          password
+        }
 
-        res.status(200).send({ message: 'succes add user data' })
+        const createUser = await UserGame.create(newUser)
+
+        localStorage.push(newUser)
+
+        return fs.writeFile(
+          filePath,
+          JSON.stringify(localStorage),
+          'utf-8',
+          () => res.status(201).json({ message: `Successfully create Data` }),
+        )
       } catch (error) {
         res.status(500).send(error)
       }
@@ -98,21 +120,24 @@ class UserGameController {
 
     static update = async (req, res) => {
       try {
-        const { id } = req.params
-        const { username, password } = req.body
+        const { username } = req.params
+        const { password } = req.body
 
-        const findUser = await UserGame.findOne({ where: { id } })
+        console.log({username})
+        console.log({password})
+
+        const findUser = await UserGame.findOne({ where: { username } })
+        console.log(findUser)
 
         if (!findUser) {
           res.status(404).json({ message: 'User not found' })
         }
 
         const updateUser = await UserGame.update({
-          username,
-          password,
-        }, { where: { id } })
+          password
+        }, { where: { username } })
 
-        res.status(200).json({ message: 'updating user' })
+        res.status(201).json({ message: 'updating user' })
       } catch (error) {
         res.status(500).send(error)
       }
