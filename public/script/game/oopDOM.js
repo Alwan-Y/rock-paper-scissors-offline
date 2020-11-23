@@ -1,5 +1,5 @@
-const username = 'alwan'
-const userGameId = '71b6e88f-3adb-433b-9566-ed5097438742'
+let username = ""
+let userGameId = ""
 
 class Player {
     constructor(name) {
@@ -284,6 +284,65 @@ class Game {
 const player = new PlayerHuman('jhon')
 const comp = new Comp('computer')
 const game = new Game(player,comp)
+
+const getUserLogin = () => {
+    const xhr = new XMLHttpRequest();
+                
+    xhr.onload = function() {
+        const responseJson = JSON.parse(this.responseText);
+        if(responseJson.error) {
+            console.log(responseJson.message);
+        } else {
+            username = responseJson[0].username
+            getUserId(username)
+            renderUsername(responseJson)
+            
+        }
+    }
+    
+    xhr.onerror = function() {
+        alert('Internal server error')
+    }
+
+    xhr.open("GET", `http://localhost:3000/apis/userLogin`);
+    xhr.send();
+}
+
+const usernameLogin = document.querySelector('#textName')
+
+const renderUsername = (username) => {
+    usernameLogin.innerHTML = ""
+
+    username.forEach(user => {
+        usernameLogin.innerHTML += `
+        <h2 class="text-uppercase text-center custom-size"> selamat bermain "${user.username}"</h2>
+        `
+    })
+}
+
+const getUserId = (test) => {
+    const xhr = new XMLHttpRequest();
+                
+    xhr.onload = function() {
+        const responseJson = JSON.parse(this.responseText);
+        if(responseJson.error) {
+            console.log(responseJson.message);
+        } else {
+            console.log(responseJson.id)
+            userGameId = responseJson.id
+
+        }
+    }
+    
+    xhr.onerror = function() {
+        alert('Internal server error')
+    }
+
+    xhr.open("GET", `http://localhost:3000/apis/userGame/${test}`);
+    xhr.send();
+}
+
+getUserLogin()
 game.getHistory()
 comp.getComputerChoice()
 

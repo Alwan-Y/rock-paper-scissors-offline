@@ -13,6 +13,8 @@ router.post('/posts', PostController.create)
 router.delete('/posts/:id', PostController.delete)
 
 router.get('/userGame', UserGameController.get)
+router.get('/userGame/:username', UserGameController.getUserByUsername)
+router.get('/userLogin', UserGameController.getUserLogin)
 router.post('/userGame', UserGameController.create)
 router.post('/userLoginCheck', UserGameController.loginCheck)
 router.patch('/userGame/:id', UserGameController.update)

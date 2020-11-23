@@ -34,5 +34,10 @@
     "babel-eslint": "^10.1.0",
     "nodemon": "^2.0.6",
     "sequelize-cli": "^6.2.0"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "src/data/localStorage/data.json"
+    ]
   }
 }

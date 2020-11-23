@@ -9,10 +9,24 @@ class UserGameController {
     static get = async (req, res) => {
       try {
         const findAllUser = await UserGame.findAll()
+        console.log(findAllUser)
         res.status(200).json(findAllUser)
       } catch (error) {
         res.status(404).json({ message: 'data not found' })
       }
+    }
+
+    static getUserLogin = (req, res) => {
+      const userLogin = localStorage
+
+      return res.status(200).json(userLogin)
+    }
+
+    static getUserByUsername = async (req,res) => {
+      const { username } = req.params
+      const findUser = await UserGame.findOne({where: {username}})
+
+      res.status(200).json(findUser)
     }
 
     static create = async (req, res) => {
@@ -37,48 +51,49 @@ class UserGameController {
     }
 
     static loginCheck = async (req, res) => {
-      const { username, password } = req.body
+      try {
+        const { username, password } = req.body
 
-      if (!localStorage.length == 0) {
-        console.log('yak')
-        for (let i = 0; i < localStorage.length; i++) {
-          localStorage.pop()
+        if (!localStorage.length == 0) {
+          console.log('yak')
+          for (let i = 0; i < localStorage.length; i++) {
+            localStorage.pop()
+          }
+          fs.writeFile(
+            filePath,
+            JSON.stringify(localStorage),
+            'utf-8',
+            () => console.log('Succes Delete exists')
+          )
         }
-        fs.writeFile(
-          filePath,
-          JSON.stringify(localStorage),
-          'utf-8',
-          () => console.log('Succes Delete exists')
-        )
+
+        const findUser = await UserGame.findOne({ where: {username}})
+        console.log(findUser)
+
+        if (!findUser) {
+          return res.status(404).json({ message: 'Username not found' })
+        }
+
+        if (findUser.password === password) {
+          const data = {
+            username,
+            password,
+          }
+  
+          localStorage.push(data)
+  
+          return fs.writeFile(
+            filePath,
+            JSON.stringify(localStorage),
+            'utf-8',
+            () => res.status(201).json({ message: `Successfully Login` }),
+          )
+        }
+        
+        return res.status(403).json({ message: 'Password not valid'})
+      } catch(error) {
+        res.status(500).json({message: 'Internal Error'})
       }
-
-      const findUser = await UserGame.findOne({ where: {username}})
-      
-      console.log(findUser.password)
-      console.log(password)
-
-      if (!findUser) {
-        return res.status(404).json({ message: 'Username not found' })
-      }
-
-      if (!findUser.password == password) {
-        res.status(403).json({ message: 'Password not valid'})
-      }
-      
-
-      const data = {
-        username,
-        password,
-      }
-
-      localStorage.push(data)
-
-      return fs.writeFile(
-        filePath,
-        JSON.stringify(localStorage),
-        'utf-8',
-        () => res.status(201).json({ message: `Successfully Login` }).redirect('/game'),
-      )
     }
 
     static update = async (req, res) => {
