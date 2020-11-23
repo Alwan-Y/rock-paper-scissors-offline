@@ -8,6 +8,8 @@ removeUser = (userId) => {
     
     xhr.onload = function() {
         getAllUser()
+        getAllBiodata()
+        getAllHistory()
     }
     
     xhr.onerror = function() {
