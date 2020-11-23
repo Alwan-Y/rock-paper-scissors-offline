@@ -20,11 +20,12 @@ router.post('/userLoginCheck', UserGameController.loginCheck)
 router.patch('/userGame/:username', UserGameController.update)
 router.delete('/userGame/:id', UserGameController.delete)
 
+router.post('/adminGame', AdminGameController.loginCheck)
 router.get('/adminGame', AdminGameController.get)
 
 router.get('/userGameBiodata', UserGameBiodataController.get)
 router.post('/userGameBiodata', UserGameBiodataController.create)
-router.patch('/userGameBiodata/:id', UserGameBiodataController.update)
+router.patch('/userGameBiodata/:userGameId', UserGameBiodataController.update)
 router.delete('/userGameBiodata/:id', UserGameBiodataController.delete)
 
 router.get('/userGameHistory', UserGameHistoryController.get)

@@ -32,12 +32,13 @@ class UserGameBiodataController {
     }
 
     static update = async (req, res) => {
-      const { id } = req.params
+      const { userGameId } = req.params
       const {
         fullname, addres, gender, age,
       } = req.body
 
-      const findBiodata = await UserGameBiodata.findOne({ where: { id } })
+      const findBiodata = await UserGameBiodata.findOne({ where: { userGameId } })
+      console.log(findBiodata)
 
       if (!findBiodata) {
         res.status(404).json({ message: 'User not found' })
@@ -48,9 +49,9 @@ class UserGameBiodataController {
         addres,
         gender,
         age,
-      }, { where: { id } })
+      }, { where: { userGameId } })
 
-      res.status(200).json({ message: 'updating user biodata' })
+      res.status(201).json({ message: 'updating user biodata' })
     }
 
     static delete = async (req, res) => {

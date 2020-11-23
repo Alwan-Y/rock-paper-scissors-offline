@@ -38,7 +38,6 @@ const renderUserLogin = (datas) => {
 }
 
 buton.addEventListener('click', () => {
-        console.log('click')    
         const xhr = new XMLHttpRequest()
         xhr.onload = function() {
             console.log(this.status)
@@ -58,7 +57,7 @@ buton.addEventListener('click', () => {
         const newUser = {
             password: password.value
         }
-        xhr.send(JSON.stringify(newUser));
+        xhr.send(JSON.stringify(newUser))
 })
 
 getUserLogin()

@@ -34,3 +34,12 @@ body {
     border: 3px solid #9b835f;
     padding: 10px;
 }
+
+.color-custom {
+    color: white;
+    background-color: #724C21;
+    width: 150px;
+    height: 60px;
+    font-size: 14pt;
+    font-weight: bold;
+}
