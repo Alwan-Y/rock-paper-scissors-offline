@@ -2,6 +2,9 @@ import { UserGame } from '../../models'
 import localStorage from '../../data/localStorage/data.json'
 import path from 'path'
 import fs from 'fs'
+import bcrypt from 'bcrypt'
+
+const salt = bcrypt.genSaltSync()
 
 const filePath = path.resolve(__dirname, '../../data/localStorage/data.json')
 
@@ -52,9 +55,11 @@ class UserGameController {
           return res.status(404).json({ message: 'Username already available' })
         }
 
+        const encodedPasword = bcrypt.hashSync(password, salt)
+
         const newUser = {
           username,
-          password
+          password: encodedPasword
         }
 
         const createUser = await UserGame.create(newUser)
@@ -90,13 +95,10 @@ class UserGameController {
         }
 
         const findUser = await UserGame.findOne({ where: {username}})
-        console.log(findUser)
 
-        if (!findUser) {
-          return res.status(404).json({ message: 'Username not found' })
-        }
+        const matchPassword = bcrypt.compareSync(password, findUser.password)
 
-        if (findUser.password === password) {
+        if (matchPassword) {
           const data = {
             username,
             password,
